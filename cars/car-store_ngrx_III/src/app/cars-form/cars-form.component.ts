@@ -1,24 +1,24 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Car } from '../car.model';
 import * as moment from 'moment';
+import { Store } from '@ngrx/store';
+import { AppState } from '../app.state';
+import { AddCar } from '../redux/cars.action';
 
 @Component({
   selector: 'app-cars-form',
   templateUrl: './cars-form.component.html',
   styleUrls: ['./cars-form.component.css']
 })
-export class CarsFormComponent implements OnInit {
+export class CarsFormComponent {
 
   private id: number = 2
   carName: string = ''
   carModel: string = ''
 
-  @Output() addCar = new EventEmitter<Car>()
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  constructor(
+    private store: Store<AppState>
+  ) { }
 
   onAdd() {
     if (this.carName === '' || this.carModel === '') return
@@ -33,7 +33,8 @@ export class CarsFormComponent implements OnInit {
       this.id
     )
 
-    this.addCar.emit(car)
+    // this.addCar.emit(car)
+    this.store.dispatch(new AddCar(car))
 
     this.carName = ''
     this.carModel = ''
