@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Car } from './car.model';
+import { Car, Cars } from './car.model';
 
 @Component({
   selector: 'app-root',
@@ -7,14 +7,11 @@ import { Car } from './car.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public cars: Car[] = [
-    new Car('Ford', '02.02.2021', 'Focus', false, 1),
-    new Car('Audi', '02.03.2021', 'A4', false, 2),
-  ];
+  public cars: Car[] = [];
 
 
   onAdd(car: Car) {
-    this.cars.push(car);
+    this.cars.push(car)
   }
 
   onDelete(car: Car) {

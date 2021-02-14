@@ -8,7 +8,7 @@ import { Car } from '../car.model';
 })
 export class CarComponent {
 
-  @Input() car: Car
+  @Input() car: Car // параметр car типа Car из модели
   @Output() deleteCar = new EventEmitter<Car>()
 
   onBuy() {
