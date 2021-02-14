@@ -11,6 +11,11 @@ export class CarComponent {
   @Input() car: Car // параметр car типа Car из модели
   @Output() deleteCar = new EventEmitter<Car>()
 
+  // constructor() {
+  //   this.car =
+
+
+
   onBuy() {
     this.car.isSold = true
   }

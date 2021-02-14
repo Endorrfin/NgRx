@@ -5,7 +5,8 @@
     <app-car
       (deleteCar)="onDelete($event)"
       [car]="c"
-      *ngFor="let c of cars">
+      *ngFor="let c of (carState | async).cars">
+<!--      Данный async подпишется за нас на объект carState и после этого вытащит из него поле cars-->
     </app-car>
   </div>
 
