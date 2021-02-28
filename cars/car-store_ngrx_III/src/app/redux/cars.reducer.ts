@@ -23,6 +23,13 @@ export function carsReducer (state = initialState, action: CarsAction) {
         ...state,
         cars: [...state.cars.filter(c => c.id !== action.payload.id)] // payload в нашем случаее - это просто машини, поэтому в него есть все поля, что и у машин
       }
+    case CAR_ACTION.UPDATE_CAR:
+      const idx = state.cars.findIndex(c => c.id === action.payload.id) // payload, как раз и есть та машина с которой мы сейчас работаем
+      state.cars[idx].isSold = true
+      return {
+        ...state,
+        cars: [...state.cars]
+      }
     default:
       return state
   }

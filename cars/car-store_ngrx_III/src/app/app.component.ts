@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Cars } from './car.model';
+import { Car, Cars } from './car.model';
 import { Store } from '@ngrx/store';
-import { AppState } from './app.state';
+import { AppState } from './redux/app.state';
 import { Observable } from 'rxjs';
 
 @Component({
